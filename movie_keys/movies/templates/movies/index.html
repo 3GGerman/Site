@@ -1,0 +1,29 @@
+{% load static %}
+    <link rel="stylesheet" href="{% static 'movies/css/style.css' %}">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+</head>
+<body>
+
+<ul class="complex_list">
+    {% for movie in movies_list %}
+        <li class="complex_list">
+            <a>
+                <img src="{% static 'movies/images/Unbroken.jpg' %}" alt="Постер">
+                <p>{{ movie.movie_name }}</p>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+
+
+
+</body>
+</html>
