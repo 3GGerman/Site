@@ -23,4 +23,5 @@ class DetailView(generic.DetailView):
 
 
 def detail(request, movie_slug):
-    return HttpResponse(f"<h1>Подробнее о фильме</h1><p>{movie_slug}</p>")
+    movie = Movies.objects.get(pk=1)
+    return render(request, 'movies/detail.html', {'movie': movie})

@@ -3,11 +3,6 @@ from django.conf import settings
 from django.db import models
 
 
-def poster_path():
-    """Путь к постерам фильмов"""
-    return os.path.join(settings.LOCAL_FILE_DIR, 'images/posters/')
-
-
 class Movies(models.Model):
     """Модель для каталога фильмов"""
     name = models.CharField(max_length=100, blank=True)
