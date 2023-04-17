@@ -10,10 +10,11 @@ def poster_path():
 
 class Movies(models.Model):
     """Модель для каталога фильмов"""
-    movie_name = models.CharField(max_length=100)
-    #movie_poster = models.FilePathField(path=poster_path)
-    movie_about = models.TextField()
+    name = models.CharField(max_length=100, blank=True)
+    poster = models.ImageField(upload_to='poster')
+    about = models.TextField()
     pub_date = models.DateTimeField('date published')
+    slug = models.SlugField(max_length=30, unique=True)
 
     def __str__(self):
-        return self.movie_name
+        return self.name

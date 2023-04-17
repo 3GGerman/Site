@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import generic
-
 from .models import Movies
+
 
 class IndexView(generic.ListView):
     """Представление списка всех фильмов что есть в базе"""
