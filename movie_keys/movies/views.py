@@ -21,3 +21,6 @@ class DetailView(generic.DetailView):
     model = Movies
     template_name = 'movies/detail.html'
 
+
+def detail(request, movie_slug):
+    return HttpResponse(f"<h1>Подробнее о фильме</h1><p>{movie_slug}</p>")

@@ -12,7 +12,7 @@ class Movies(models.Model):
     """Модель для каталога фильмов"""
     name = models.CharField(max_length=100, blank=True)
     poster = models.ImageField(upload_to='poster')
-    about = models.TextField()
+    about = models.TextField(blank=True)
     pub_date = models.DateTimeField('date published')
     slug = models.SlugField(max_length=30, unique=True)
 
