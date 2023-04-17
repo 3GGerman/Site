@@ -1,0 +1,16 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+
+{% block body %}
+<ul class="complex_list">
+    {% for movie in movies_list %}
+        <li class="complex_list">
+            <a>
+                <img src="movies/images/Unbroken.jpg" alt="Постер">
+                <p>{{ movie.movie_name }}</p>
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock body %}
+
