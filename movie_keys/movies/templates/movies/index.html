@@ -1,14 +1,18 @@
-{% extends 'movies/base.html' %} {% load static %} {% block body %}
+{% extends 'movies/base.html' %}
+{% load static %}
+
+
+{% block body %}
 
 <h1 class="title">Фильмы</h1>
 <ul class="movies">
 	{% for movie in movies_list %}
-	<li class="movies__item">
-		<a class="movies__link" href="#сюдаСсылку">
-			<img src="{{ movie.poster.url }}" alt="Постер" />
-			<p class="movies__name">{{ movie.name }}</p>
-		</a>
-	</li>
+		<li class="movies__item">
+			<a class="movies__link" href="{% url 'detail' movie.slug %}" >
+				<img src="{{ movie.poster.url }}" alt="Постер" />
+				<p class="movies__name">{{ movie.name }}</p>
+			</a>
+		</li>
 	{% endfor %}
 </ul>
 {% endblock body %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.views import generic
 from .models import Movies
@@ -17,11 +17,10 @@ class IndexView(generic.ListView):
         return more_movie
 
 
-class DetailView(generic.DetailView):
-    model = Movies
-    template_name = 'movies/detail.html'
-
-
 def detail(request, movie_slug):
-    movie = Movies.objects.get(pk=1)
+    movie = get_object_or_404(Movies, slug=movie_slug)
     return render(request, 'movies/detail.html', {'movie': movie})
+
+
+def test(request):
+    return HttpResponse('Test')
