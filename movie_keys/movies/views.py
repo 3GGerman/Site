@@ -22,5 +22,6 @@ def detail(request, movie_slug):
     return render(request, 'movies/detail.html', {'movie': movie})
 
 
+#Тест view
 def test(request):
     return HttpResponse('Test')
