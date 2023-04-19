@@ -9,4 +9,5 @@ class MoviesAdmin(admin.ModelAdmin):
     list_display = ['id', 'title', 'poster', 'date_create', 'is_published']
     list_display_links = ['id', 'title']
 
+
 admin.site.register(Movies, MoviesAdmin)

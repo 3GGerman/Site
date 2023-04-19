@@ -11,10 +11,13 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Возвращает все опубликованные фильмы на сайте"""
-        more_movie = Movies.objects.all()
-        """for i in range(3):
-            more_movie = more_movie.union(more_movie, all=True)"""
-        return more_movie
+        all_movies = Movies.objects.all()
+        return all_movies
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['counter'] = [x for x in range(250)]
+        return context
 
 
 def detail(request, movie_slug):
