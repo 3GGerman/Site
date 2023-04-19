@@ -6,14 +6,21 @@ from django.urls import reverse
 
 class Movies(models.Model):
     """Модель для каталога фильмов"""
-    name = models.CharField(max_length=100, blank=True)
+    title = models.CharField(max_length=100, blank=True)
     poster = models.ImageField(upload_to='poster')
     about = models.TextField(blank=True)
-    pub_date = models.DateTimeField('date published')
+    date_create = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=True)
     slug = models.SlugField(max_length=30, unique=True)
 
     def __str__(self):
-        return self.name
+        return self.title
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'movie_slug': self.slug})
+
+    #Класс для админ-панельки
+    class Meta:
+        verbose_name = 'Фильмы'
+        verbose_name_plural = 'Фильмы'
+        ordering = ['date_create']
