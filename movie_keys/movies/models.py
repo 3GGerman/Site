@@ -6,11 +6,11 @@ from django.urls import reverse
 
 class Movies(models.Model):
     """Модель для каталога фильмов"""
-    title = models.CharField(max_length=100, blank=True)
-    poster = models.ImageField(upload_to='poster')
-    about = models.TextField(blank=True)
-    date_create = models.DateTimeField(auto_now=True)
-    is_published = models.BooleanField(default=True)
+    title = models.CharField(max_length=100, blank=True, verbose_name='Название фильма')
+    poster = models.ImageField(upload_to='poster', verbose_name='Постер')
+    about = models.TextField(blank=True, verbose_name='О фильме')
+    date_create = models.DateTimeField(auto_now=True, verbose_name='Дата добавления')
+    is_published = models.BooleanField(default=True, verbose_name='Публикация')
     slug = models.SlugField(max_length=30, unique=True)
 
     def __str__(self):
