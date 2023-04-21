@@ -1,20 +1,14 @@
-{% extends 'movies/base.html' %}
-{% load static %}
-
-
-{% block body %}
+{% extends 'movies/base.html' %} {% load static %} {% block body %}
 
 <h1 class="title">Фильмы</h1>
 <ul class="movies">
-	{% for c in counter %}
-		{% for movie in all_movies %}
-			<li class="movies__item">
-				<a class="movies__link" href="{{ movie.get_absolute_url }}" >
-					<img src="{{ movie.poster.url }}" alt="Постер" />
-					<p class="movies__name">{{ movie.title }}</p>
-				</a>
-			</li>
-		{% endfor %}
-	{% endfor %}
+	{% for c in counter %} {% for movie in movies_list %}
+	<li class="movies__item">
+		<a class="movies__link" href="{{ movie.get_absolute_url }}">
+			<img src="{{ movie.poster.url }}" alt="Постер" />
+			<p class="movies__name">{{ movie.title }}</p>
+		</a>
+	</li>
+	{% endfor %} {% endfor %}
 </ul>
 {% endblock body %}
