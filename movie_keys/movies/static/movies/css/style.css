@@ -72,6 +72,7 @@ body {
 	max-width: 1600px;
 	margin: 0 auto;
 	background-color: #679ed2;
+	overflow-x: hidden;
 }
 
 .container {
