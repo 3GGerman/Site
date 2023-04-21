@@ -1,19 +1,26 @@
 import os
 from django.conf import settings
 from django.db import models
-
-
-def poster_path():
-    """Путь к постерам фильмов"""
-    return os.path.join(settings.LOCAL_FILE_DIR, 'images/posters/')
+from django.urls import reverse
 
 
 class Movies(models.Model):
     """Модель для каталога фильмов"""
-    movie_name = models.CharField(max_length=100)
-    #movie_poster = models.FilePathField(path=poster_path)
-    movie_about = models.TextField()
-    pub_date = models.DateTimeField('date published')
+    title = models.CharField(max_length=100, blank=True, verbose_name='Название фильма')
+    poster = models.ImageField(upload_to='poster', verbose_name='Постер')
+    about = models.TextField(blank=True, verbose_name='О фильме')
+    date_create = models.DateTimeField(auto_now=True, verbose_name='Дата добавления')
+    is_published = models.BooleanField(default=True, verbose_name='Публикация')
+    slug = models.SlugField(max_length=30, unique=True)
 
     def __str__(self):
-        return self.movie_name
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'movie_slug': self.slug})
+
+    #Класс для админ-панельки
+    class Meta:
+        verbose_name = 'Фильмы'
+        verbose_name_plural = 'Фильмы'
+        ordering = ['date_create', 'id', 'title']

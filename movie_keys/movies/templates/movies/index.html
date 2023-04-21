@@ -1,29 +1,20 @@
+{% extends 'movies/base.html' %}
 {% load static %}
-    <link rel="stylesheet" href="{% static 'movies/css/style.css' %}">
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная страница</title>
-</head>
-<body>
+{% block body %}
 
-<ul class="complex_list">
-    {% for movie in movies_list %}
-        <li class="complex_list">
-            <a>
-                <img src="{% static 'movies/images/Unbroken.jpg' %}" alt="Постер">
-                <p>{{ movie.movie_name }}</p>
-            </a>
-        </li>
-    {% endfor %}
+<h1 class="title">Фильмы</h1>
+<ul class="movies">
+	{% for c in counter %}
+		{% for movie in all_movies %}
+			<li class="movies__item">
+				<a class="movies__link" href="{{ movie.get_absolute_url }}" >
+					<img src="{{ movie.poster.url }}" alt="Постер" />
+					<p class="movies__name">{{ movie.title }}</p>
+				</a>
+			</li>
+		{% endfor %}
+	{% endfor %}
 </ul>
-
-
-
-
-
-</body>
-</html>
+{% endblock body %}

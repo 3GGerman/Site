@@ -1,0 +1,15 @@
+{% load static %}
+{% load movies_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>{% block title %}Базовое название.{% endblock title %}</title>
+		<!--Подгружает стили из style.css-->
+		<link rel="stylesheet" href="{% static 'movies/css/style.css' %}" />
+	</head>
+	<body class="body">
+		<div>{% header_tag %}</div>
+		<div class="container">{% block body %} {% endblock body %}</div>
+	</body>
+</html>
