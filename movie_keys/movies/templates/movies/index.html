@@ -2,7 +2,8 @@
 
 <h1 class="title">Фильмы</h1>
 <ul class="movies">
-	{% for c in counter %} {% for movie in movies_list %}
+	{% for c in counter %}
+	{% for movie in all_movies %}
 	<li class="movies__item">
 		<a class="movies__link" href="{{ movie.get_absolute_url }}">
 			<img src="{{ movie.poster.url }}" alt="Постер" />
