@@ -21,6 +21,10 @@ def detail(request, movie_slug):
     return render(request, 'movies/detail.html', context=context)
 
 
+def about(request):
+    return render(request, 'movies/about.html')
+
+
 #Тест view
 def test(request):
     return HttpResponse('Test')
