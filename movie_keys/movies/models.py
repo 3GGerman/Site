@@ -8,6 +8,7 @@ class Movies(models.Model):
     """Модель для каталога фильмов"""
     title = models.CharField(max_length=100, blank=True, verbose_name='Название фильма')
     poster = models.ImageField(upload_to='poster', verbose_name='Постер')
+    release_dates = models.IntegerField(verbose_name='Год')
     about = models.TextField(blank=True, verbose_name='О фильме')
     date_create = models.DateTimeField(auto_now=True, verbose_name='Дата добавления')
     is_published = models.BooleanField(default=True, verbose_name='Публикация')
