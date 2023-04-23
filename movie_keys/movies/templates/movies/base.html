@@ -41,9 +41,11 @@
 						</li>
 					</ul>
 				</nav>
-				<form class="header__form formSearch" action="#">
+				<form class="header__form formSearch" action="#" method="POST">
+					{% csrf_token %}
 					<input
 						class="formSearch__input"
+						name="search"
 						type="text"
 						type="search"
 						placeholder="поиск фильмов и сериалов"

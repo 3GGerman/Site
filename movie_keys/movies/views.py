@@ -5,12 +5,21 @@ from .models import Movies
 
 
 def index(request):
-    all_movies = Movies.objects.all()
-    context = {
-        'all_movies': all_movies,
-        'counter': [x for x in range(250)],
-    }
-    return render(request, 'movies/index.html', context=context)
+    search = request.POST.get('search')
+    if search:
+        all_movies = Movies.objects.filter(title__istartswith=search)
+        context = {
+            'all_movies': all_movies,
+            'counter': [x for x in range(250)],
+        }
+        return render(request, 'movies/index.html', context=context)
+    else:
+        all_movies = Movies.objects.all()
+        context = {
+            'all_movies': all_movies,
+            'counter': [x for x in range(250)],
+        }
+        return render(request, 'movies/index.html', context=context)
 
 
 def detail(request, movie_slug):
