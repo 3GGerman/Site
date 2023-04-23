@@ -1,4 +1,8 @@
-{% extends 'movies/base.html' %} {% load static %} {% block body %}
+{% extends 'movies/base.html' %}
+{% load static %}
+
+
+{% block main %}
 
 <h1 class="title">Фильмы</h1>
 <ul class="movies">
@@ -12,4 +16,4 @@
 	</li>
 	{% endfor %} {% endfor %}
 </ul>
-{% endblock body %}
+{% endblock main %}
