@@ -1,5 +1,4 @@
-{% load static %}
-{% load movies_tags %}
+{% load static %} {% load movies_tags %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -11,12 +10,8 @@
 	</head>
 	<body class="body">
 		<div class="container">
-			{% header_tag %}
-
-			{% block main %}
-
-
-			{% endblock main %}
+			{% header_tag %} {% block main %} {% block main %} {% endblock
+			main%}
 		</div>
 	</body>
 </html>
